@@ -87,7 +87,7 @@ void mergeSort(std::vector<int>& vec, int start, int end) {
       start = time.time()
       ms.mergeSortTemperature(list, 0, len(list) - 1)
       end = time.time()
-      st.session_state.sort_result = "Algorithm took: " + str(
+      st.session_state.sort_result = choice2 + " Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
 
