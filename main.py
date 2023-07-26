@@ -10,7 +10,7 @@ def main():
 
   st.title("Stellar Showdown")
   st.subheader("******HYG Database, 120,000 Stars******")
-  st.image("image(1).jpg")
+  st.image("image.jpg")
 
   # I used session state becuse otherwise there is no way to keep track of what has happend before, which is important as I do not want the sorting to run again if ano  other action is performed, like prssing show stars
 
