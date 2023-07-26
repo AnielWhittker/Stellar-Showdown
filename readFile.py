@@ -12,7 +12,7 @@ class Star:
 
 list = []
 # reads the csv file and stores the temperature and distance on a star object in the list
-with open("hygxyz.csv", "r") as file:
+with open("hygxyz(1).csv", "r") as file:
   reader = csv.reader(file)
   next(reader)
   for line in reader:
