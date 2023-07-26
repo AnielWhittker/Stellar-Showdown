@@ -8,6 +8,40 @@ def main():
   # list that stores the star objects
   list = r.list
 
+  # merge sort algorithm code snippet
+  mergeSort = '''def merge(list, start, mid, end):
+  left = list[start:mid + 1]
+  right = list[mid + 1:end + 1]
+  i = 0
+  j = 0
+  k = start
+
+  while i < len(left) and j < len(right):
+    if left[i] <= right[j]:
+      list[k] = left[i]
+      i += 1
+    else:
+      list[k] = right[j]
+      j += 1
+    k += 1
+
+  while i < len(left):
+    list[k] = left[i]
+    i += 1
+    k += 1
+
+  while j < len(right):
+    list[k] = right[j]
+    j += 1
+    k += 1
+
+def mergeSort(list, start, end):
+  if start < end:
+    mid = start + (end - start) // 2
+    mergeSort(list, start, mid)
+    mergeSort(list, mid+1, end)
+    merge(list, start, mid, end)'''
+
   st.title("Stellar Showdown")
   st.subheader("******HYG Database, 120,000 Stars******")
   st.image("image.jpg")
@@ -37,13 +71,16 @@ def main():
       end = time.time()
       st.session_state.sort_result = "Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
+      st.code(mergeSort, language="python")
       st.session_state.button_pressed = False
+      
     elif choice1 == "Temperature" and choice2 == "Merge Sort":
       start = time.time()
       ms.mergeSortTemperature(list, 0, len(list) - 1)
       end = time.time()
       st.session_state.sort_result = "Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
+      st.code(mergeSort, language="python")
       st.session_state.button_pressed = False
 
   # displays the result string to screen if result is not None
