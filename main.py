@@ -91,7 +91,7 @@ void mergeSort(std::vector<int>& vec, int start, int end) {
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
 
-  # displays the result string to screen if result is not None
+  # displays the result string and code to screen if result is not None
   if st.session_state.sort_result is not None:
     st.write(st.session_state.sort_result)
     st.write("")
