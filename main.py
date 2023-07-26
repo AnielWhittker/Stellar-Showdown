@@ -9,38 +9,48 @@ def main():
   list = r.list
 
   # merge sort algorithm code snippet
-  mergeSort = '''def merge(list, start, mid, end):
-  left = list[start:mid + 1]
-  right = list[mid + 1:end + 1]
-  i = 0
-  j = 0
-  k = start
+  mergeSort = '''#include <vector>
 
-  while i < len(left) and j < len(right):
-    if left[i] <= right[j]:
-      list[k] = left[i]
-      i += 1
-    else:
-      list[k] = right[j]
-      j += 1
-    k += 1
+void merge(std::vector<int>& vec, int start, int mid, int end) {
+    std::vector<int> left(vec.begin() + start, vec.begin() + mid + 1);
+    std::vector<int> right(vec.begin() + mid + 1, vec.begin() + end + 1);
+    
+    int i = 0;
+    int j = 0;
+    int k = start;
 
-  while i < len(left):
-    list[k] = left[i]
-    i += 1
-    k += 1
+    while (i < left.size() && j < right.size()) {
+        if (left[i] <= right[j]) {
+            vec[k] = left[i];
+            i++;
+        } else {
+            vec[k] = right[j];
+            j++;
+        }
+        k++;
+    }
 
-  while j < len(right):
-    list[k] = right[j]
-    j += 1
-    k += 1
+    while (i < left.size()) {
+        vec[k] = left[i];
+        i++;
+        k++;
+    }
 
-def mergeSort(list, start, end):
-  if start < end:
-    mid = start + (end - start) // 2
-    mergeSort(list, start, mid)
-    mergeSort(list, mid+1, end)
-    merge(list, start, mid, end)'''
+    while (j < right.size()) {
+        vec[k] = right[j];
+        j++;
+        k++;
+    }
+}
+
+void mergeSort(std::vector<int>& vec, int start, int end) {
+    if (start < end) {
+        int mid = start + (end - start) / 2;
+        mergeSort(vec, start, mid);
+        mergeSort(vec, mid + 1, end);
+        merge(vec, start, mid, end);
+    }
+}'''
 
   st.title("Stellar Showdown")
   st.subheader("******HYG Database, 120,000 Stars******")
@@ -69,23 +79,25 @@ def mergeSort(list, start, end):
       start = time.time()
       ms.mergeSortDistance(list, 0, len(list) - 1)
       end = time.time()
-      st.session_state.sort_result = "Algorithm took: " + str(
+      st.session_state.sort_result = choice2 + " Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
-      st.code(mergeSort, language="python")
       st.session_state.button_pressed = False
-      
+
     elif choice1 == "Temperature" and choice2 == "Merge Sort":
       start = time.time()
       ms.mergeSortTemperature(list, 0, len(list) - 1)
       end = time.time()
       st.session_state.sort_result = "Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
-      st.code(mergeSort, language="python")
       st.session_state.button_pressed = False
 
   # displays the result string to screen if result is not None
   if st.session_state.sort_result is not None:
     st.write(st.session_state.sort_result)
+    st.write("")
+    st.write("C++ Code for " + choice2 + " Algorithm")
+    if choice2 == "Merge Sort":
+      st.code(mergeSort, language="C++")
 
   # if tthe button is pressed, it will display the last 25 stars in the list
   if st.checkbox("Show stars"):
