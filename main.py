@@ -52,6 +52,9 @@ def main():
   if st.session_state.sort_result is not None:
     st.write(st.session_state.sort_result)
     st.write("")
+  
+  # show code
+  if st.checkbox("Show code"):
     st.write("C++ Code for " + choice2 + " Algorithm")
     if choice2 == "Merge Sort":
       st.code(sc.mergeSort, language="cpp")
