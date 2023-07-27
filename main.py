@@ -2,55 +2,12 @@ import streamlit as st
 import time
 import readFile as r
 import mergeSort as ms
+import sortingCodes as sc
 
 
 def main():
   # list that stores the star objects
   list = r.list
-
-  # merge sort algorithm code snippet
-  mergeSort = '''#include <vector>
-
-void merge(std::vector<int>& vec, int start, int mid, int end) {
-    std::vector<int> left(vec.begin() + start, vec.begin() + mid + 1);
-    std::vector<int> right(vec.begin() + mid + 1, vec.begin() + end + 1);
-    
-    int i = 0;
-    int j = 0;
-    int k = start;
-
-    while (i < left.size() && j < right.size()) {
-        if (left[i] <= right[j]) {
-            vec[k] = left[i];
-            i++;
-        } else {
-            vec[k] = right[j];
-            j++;
-        }
-        k++;
-    }
-
-    while (i < left.size()) {
-        vec[k] = left[i];
-        i++;
-        k++;
-    }
-
-    while (j < right.size()) {
-        vec[k] = right[j];
-        j++;
-        k++;
-    }
-}
-
-void mergeSort(std::vector<int>& vec, int start, int end) {
-    if (start < end) {
-        int mid = start + (end - start) / 2;
-        mergeSort(vec, start, mid);
-        mergeSort(vec, mid + 1, end);
-        merge(vec, start, mid, end);
-    }
-}'''
 
   st.title("Stellar Showdown")
   st.subheader("******HYG Database, 120,000 Stars******")
@@ -97,7 +54,7 @@ void mergeSort(std::vector<int>& vec, int start, int end) {
     st.write("")
     st.write("C++ Code for " + choice2 + " Algorithm")
     if choice2 == "Merge Sort":
-      st.code(mergeSort, language="C++")
+      st.code(sc.mergeSort, language="cpp")
 
   # if tthe button is pressed, it will display the last 25 stars in the list
   if st.checkbox("Show stars"):
