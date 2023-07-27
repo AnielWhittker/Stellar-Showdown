@@ -8,12 +8,12 @@ import base64
 
 def background(imageFile):
   with open(imageFile, "rb") as imageFile:
-    encoded_string = base64.b64encode(imageFile.read())
+    encodedString = base64.b64encode(imageFile.read())
   st.markdown(
   f"""
   <style>
   .stApp {{
-    background-image: url(data:image/{"jpg"};base64,{encoded_string.decode()});
+    background-image: url(data:image/{"jpg"};base64,{encodedString.decode()});
     background-size: cover
   }}
   </style>
