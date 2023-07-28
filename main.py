@@ -78,7 +78,6 @@ def main():
   # displays the result string and code to screen if result is not None
   if st.session_state.sort_result is not None:
     st.sidebar.write(st.session_state.sort_result)
-    st.sidebar.write("")
   
   # show code
   if st.sidebar.checkbox("Show code"):
@@ -98,12 +97,11 @@ def main():
     else:
       st.code(string)
 
-  # if tthe button is pressed, it will display the last 100 stars in the list
+  # if tthe button is pressed, it will display the last 25 stars in the list
   if st.sidebar.checkbox("Show stars"):
-    st.write("")
     st.header("Stars by " + choice1)
     stringStars = ""
-    for j in range(len(list) - 1, len(list) - 101, -1):
+    for j in range(len(list) - 1, len(list) - 26, -1):
       temperature = str("{:.5f}".format(list[j].temperature))
       # if the color index was empty, therfore set to 0, set to "N/A"
       if temperature == str(4600 * ((1 / 1.7) + (1 / 0.62))):
