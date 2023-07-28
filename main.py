@@ -85,18 +85,6 @@ def main():
     if choice2 == "Merge Sort":
       st.code(sc.mergeSort, language="cpp")
   
-  string = ""
-  if len(st.session_state.usedAlgorithim) > 0:
-    for key, value in st.session_state.usedAlgorithim.items():
-      string += key + " Algorithm took: " + value + " seconds" + "\n"
-
-  # Show the report
-  if st.sidebar.checkbox("Show report"):
-    if len(st.session_state.usedAlgorithim) == 0:
-      st.sidebar.write("No sorting has been done yet")
-    else:
-      st.code(string)
-
   # if tthe button is pressed, it will display the last 25 stars in the list
   if st.sidebar.checkbox("Show stars"):
     st.header("Stars by " + choice1)
@@ -108,6 +96,18 @@ def main():
         temperature = "N/A"
       stringStars += "Star " + str(j + 1) + ":" + " Distance from Earth, " + str("{:.5f}".format(list[j].distance)) + " light-years. Temperature " + temperature + " Kelvin" + "\n"
     st.code(stringStars)
+  
+  string = ""
+  if len(st.session_state.usedAlgorithim) > 0:
+    for key, value in st.session_state.usedAlgorithim.items():
+      string += key + " Algorithm took: " + value + " seconds" + "\n"
+
+  # Show the report
+  if st.sidebar.checkbox("Show report"):
+    if len(st.session_state.usedAlgorithim) == 0:
+      st.sidebar.write("No sorting has been done yet")
+    else:
+      st.code(string)
 
   if st.sidebar.button("Reset"):
     st.session_state.sort_result = None
