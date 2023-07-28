@@ -40,7 +40,11 @@ def main():
   # adds the choices buttons
   choice1 = st.sidebar.radio("Sort stars by", ["Distance from Earth", "Temperature"])
   choice2 = st.sidebar.radio("Which Sorting algorithm?",
-                     ["Merge Sort", "Bogo Sort", "Random Sort", "Shell Sort"])
+                     ["Merge Sort", "Bogo Sort", "Bubble Sort", "Shell Sort", "Quick Sort", "TimSort"])
+  
+  # dictionary for report(TODO)
+  if "usedAlgorithim" not in st.session_state:
+    st.session_state.usedAlgorithim = {}
 
   # it sets button presed to True in the session state
   if st.sidebar.button("Sort"):
@@ -52,6 +56,9 @@ def main():
       start = time.time()
       ms.mergeSortDistance(list, 0, len(list) - 1)
       end = time.time()
+
+      st.session_state.usedAlgorithim[choice2] = str("{:.4f}".format(end - start))
+
       st.session_state.sort_result = choice2 + " Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
@@ -60,6 +67,9 @@ def main():
       start = time.time()
       ms.mergeSortTemperature(list, 0, len(list) - 1)
       end = time.time()
+
+      st.session_state.usedAlgorithim[choice2] = str("{:.4f}".format(end - start))
+
       st.session_state.sort_result = choice2 + " Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
@@ -74,6 +84,18 @@ def main():
     st.write("C++ Code for " + choice2 + " Algorithm")
     if choice2 == "Merge Sort":
       st.code(sc.mergeSort, language="cpp")
+  
+  string = ""
+  if len(st.session_state.usedAlgorithim) > 0:
+    for key, value in st.session_state.usedAlgorithim.items():
+      string += key + " Algorithm took: " + value + " seconds" + "\n"
+
+  # Show the report
+  if st.sidebar.checkbox("Show report"):
+    if len(st.session_state.usedAlgorithim) == 0:
+      st.sidebar.write("No sorting has been done yet")
+    else:
+      st.code(string)
 
   # if tthe button is pressed, it will display the last 25 stars in the list
   if st.sidebar.checkbox("Show stars"):
@@ -90,9 +112,7 @@ def main():
 
   if st.sidebar.button("Reset"):
     st.session_state.sort_result = None
-    list = r.list
     st.experimental_rerun()
-
 
 if __name__ == "__main__":
   main()
