@@ -22,6 +22,7 @@ def background(imageFile):
   )
 
 def main():
+  st. set_page_config(layout="wide")
   # list that stores the star objects
   list = r.list
   background('image.jpg') # add background image
@@ -97,18 +98,18 @@ def main():
     else:
       st.code(string)
 
-  # if tthe button is pressed, it will display the last 25 stars in the list
+  # if tthe button is pressed, it will display the last 100 stars in the list
   if st.sidebar.checkbox("Show stars"):
     st.write("")
     st.header("Stars by " + choice1)
-    for j in range(len(list) - 1, len(list) - 26, -1):
+    stringStars = ""
+    for j in range(len(list) - 1, len(list) - 101, -1):
       temperature = str("{:.5f}".format(list[j].temperature))
       # if the color index was empty, therfore set to 0, set to "N/A"
       if temperature == str(4600 * ((1 / 1.7) + (1 / 0.62))):
         temperature = "N/A"
-      st.subheader("Star " + str(j + 1) + ":" + " Distance from Earth, " +
-               str("{:.5f}".format(list[j].distance)) +
-               " light-years. Temperature " + temperature + " Kelvin")
+      stringStars += "Star " + str(j + 1) + ":" + " Distance from Earth, " + str("{:.5f}".format(list[j].distance)) + " light-years. Temperature " + temperature + " Kelvin" + "\n"
+    st.code(stringStars)
 
   if st.sidebar.button("Reset"):
     st.session_state.sort_result = None
