@@ -107,6 +107,7 @@ def main():
     if len(st.session_state.usedAlgorithim) == 0:
       st.sidebar.write("No sorting has been done yet")
     else:
+      st.header("Report")
       st.code(string)
 
   if st.sidebar.button("Reset"):
