@@ -5,7 +5,7 @@ import mergeSort as ms
 import sortingCodes as sc
 import base64
 
-
+# takes in an imge file and sets it as the background image
 def background(imageFile):
   with open(imageFile, "rb") as imageFile:
     encodedString = base64.b64encode(imageFile.read())
