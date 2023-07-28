@@ -81,7 +81,7 @@ def main():
   
   # show code
   if st.sidebar.checkbox("Show code"):
-    st.write("C++ Code for " + choice2 + " Algorithm")
+    st.header("C++ Code for " + choice2 + " Algorithm")
     if choice2 == "Merge Sort":
       st.code(sc.mergeSort, language="cpp")
   
