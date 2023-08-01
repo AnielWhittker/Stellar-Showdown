@@ -140,6 +140,10 @@ def main():
     st.session_state.sort_result = None
     list = r.list
     st.experimental_rerun()
+  
+  st.sidebar.write("---")
+  st.sidebar.write("Created by: The Stellar Coders")
+  st.sidebar.write("Neema Owji, Maxwell Evans, and Aniel Whittker Melian")
 
 if __name__ == "__main__":
   main()
