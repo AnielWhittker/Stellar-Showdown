@@ -26,6 +26,7 @@ def main():
   st. set_page_config(layout="wide")
   # list that stores the star objects
   list = r.list
+
   background('image.jpg') # add background image
 
   st.sidebar.title("Stellar Showdown")

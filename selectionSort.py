@@ -4,8 +4,9 @@ def selectionSortTemp(list):
         for j in range(i+1, len(list)):
             if list[j].temperature < list[minIndx].temperature:
                 minIndx = j
+        temp = list[i]
         list[i] = list[minIndx]
-        list[minIndx] = list[i]
+        list[minIndx] = temp
 
     return list
 
@@ -15,7 +16,8 @@ def selectionSortDist(list):
         for j in range(i+1, len(list)):
             if list[j].distance < list[minIndx].distance:
                 minIndx = j
+        temp = list[i]
         list[i] = list[minIndx]
-        list[minIndx] = list[i]
-
+        list[minIndx] = temp
+        
     return list
