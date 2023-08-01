@@ -104,9 +104,11 @@ def main():
   
   # show code
   if st.sidebar.checkbox("Show code"):
-    st.header("C++ Code for " + choice2 + " Algorithm")
+    st.header("Python Code for " + choice2 + " Algorithm")
     if choice2 == "Merge Sort":
-      st.code(sc.mergeSort, language="cpp")
+      st.code(sc.mergeSort, language="python")
+    elif choice2 == "Selection Sort":
+      st.code(sc.selectionSort, language="python")
   
   # if tthe button is pressed, it will display the last 25 stars in the list
   if st.sidebar.checkbox("Show stars"):
