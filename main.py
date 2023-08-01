@@ -2,6 +2,7 @@ import streamlit as st
 import time
 import readFile as r
 import mergeSort as ms
+import selectionSort as ss
 import sortingCodes as sc
 import base64
 
@@ -41,7 +42,7 @@ def main():
   # adds the choices buttons
   choice1 = st.sidebar.radio("Sort stars by", ["Distance from Earth", "Temperature"])
   choice2 = st.sidebar.radio("Which Sorting algorithm?",
-                     ["Merge Sort", "Bogo Sort", "Bubble Sort", "Shell Sort", "Quick Sort", "TimSort"])
+                     ["Merge Sort", "Selection Sort", "Bubble Sort", "Shell Sort", "Quick Sort", "TimSort"])
   
   # dictionary for report(TODO)
   if "usedAlgorithim" not in st.session_state:
@@ -67,6 +68,28 @@ def main():
     elif choice1 == "Temperature" and choice2 == "Merge Sort":
       start = time.time()
       ms.mergeSortTemperature(list, 0, len(list) - 1)
+      end = time.time()
+
+      st.session_state.usedAlgorithim[choice2] = str("{:.4f}".format(end - start))
+
+      st.session_state.sort_result = choice2 + " Algorithm took: " + str(
+        "{:.4f}".format(end - start)) + " seconds"
+      st.session_state.button_pressed = False
+    
+    elif choice1 == "Distance from Earth" and choice2 == "Selection Sort":
+      start = time.time()
+      ss.selectionSortDist(list)
+      end = time.time()
+
+      st.session_state.usedAlgorithim[choice2] = str("{:.4f}".format(end - start))
+
+      st.session_state.sort_result = choice2 + " Algorithm took: " + str(
+        "{:.4f}".format(end - start)) + " seconds"
+      st.session_state.button_pressed = False
+    
+    elif choice1 == "Temperature" and choice2 == "Selection Sort":
+      start = time.time()
+      ss.selectionSortTemp(list)
       end = time.time()
 
       st.session_state.usedAlgorithim[choice2] = str("{:.4f}".format(end - start))
