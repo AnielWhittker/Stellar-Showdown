@@ -138,6 +138,7 @@ def main():
 
   if st.sidebar.button("Reset"):
     st.session_state.sort_result = None
+    list = r.list
     st.experimental_rerun()
 
 if __name__ == "__main__":
