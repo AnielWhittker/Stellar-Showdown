@@ -5,7 +5,7 @@ def shellSortTemp(list):
 
     while gap > 0:
         for i in range(gap, end):
-            temp = returnList[i];
+            temp = returnList[i]
 
             j = i
 
@@ -28,7 +28,7 @@ def shellSortDistance(list):
 
     while gap > 0:
         for i in range(gap, end):
-            temp = returnList[i];
+            temp = returnList[i]
 
             j = i
 
