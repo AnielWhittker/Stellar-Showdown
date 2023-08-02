@@ -65,6 +65,7 @@ def main():
     step=1, 
     key="range"
   )
+  # st.sidebar.write("try a power of 2")
 
   # Check if the manual input has been changed
   if input_range != st.session_state.input_range:
@@ -79,6 +80,8 @@ def main():
   elif st.session_state.input_changed:
     st.sidebar.write('range:', (0, input_range))
     st.session_state.input_changed = False
+  else:
+    st.sidebar.write('range:', star_range)
 
   # I used session state becuse otherwise there is no way to keep track of what has happend before, which is important as I do not want the sorting to run again if ano  other action is performed, like prssing show stars
 
