@@ -259,7 +259,7 @@ def main():
   string = ""
   if len(st.session_state.usedAlgorithim) > 0:
     for key, value in st.session_state.usedAlgorithim.items():
-      string += key + " Algorithm took: " + value + " seconds, " + "sorted " + str(star_range[1] - star_range[0]) + " stars\n"
+      string += key + " Algorithm took: " + value + " seconds" + "\n"
 
   # Show the report
   if st.sidebar.checkbox("Show report"):
