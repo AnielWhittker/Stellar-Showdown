@@ -38,10 +38,47 @@ def main():
   st.sidebar.title("Stellar Showdown")
   st.sidebar.subheader("******using the HYG Database of 120,000 Stars******")
 
+  if 'input_changed' not in st.session_state:
+    st.session_state.input_changed = False
+  if 'slider_moved' not in st.session_state:
+    st.session_state.slider_moved = False
+  if 'star_range' not in st.session_state:
+    st.session_state.star_range = (0, 119614)
+  if 'input_range' not in st.session_state:
+    st.session_state.input_range = 0
+
   star_range = st.sidebar.slider(
-  'adjust range of stars',
-  0, 119614, (0, 119614))
-  st.sidebar.write('range:', star_range)
+    'adjust range of stars',
+    0, 119614, st.session_state.star_range
+  )
+
+  # Check if the slider has been moved
+  if star_range != st.session_state.star_range:
+    st.session_state.slider_moved = True
+    st.session_state.star_range = star_range
+
+  input_range = st.sidebar.number_input(
+    "manually enter range of stars", 
+    min_value=0, 
+    max_value=119614, 
+    value=st.session_state.input_range, 
+    step=1, 
+    key="range"
+  )
+
+  # Check if the manual input has been changed
+  if input_range != st.session_state.input_range:
+    st.session_state.input_changed = True
+    st.session_state.input_range = input_range
+    st.session_state.star_range = (0, input_range)
+
+  # If the slider was moved last, use the slider range; otherwise, use the manual input
+  if st.session_state.slider_moved:
+    st.sidebar.write('range:', star_range)
+    st.session_state.slider_moved = False
+  elif st.session_state.input_changed:
+    st.sidebar.write('range:', (0, input_range))
+    st.session_state.input_changed = False
 
   # I used session state becuse otherwise there is no way to keep track of what has happend before, which is important as I do not want the sorting to run again if ano  other action is performed, like prssing show stars
 
