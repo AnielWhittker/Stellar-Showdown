@@ -1,38 +1,40 @@
 def quickSortTemp(list):
+    if len(list) <= 1:
+        return list
+
     pivot = list[len(list) // 2]
 
     smallerThanPivot = []
     equalToPivot = []
     greaterThanPivot = []
 
-    for i in list:
-        if list[i].temperature < pivot.temperature:
-            smallerThanPivot.append(list[i])
-
-        elif list[i].temperature == pivot.temperature:
-            equalToPivot.append(list[i])
-
-        elif list[i].temperature > pivot.temperature:
-            greaterThanPivot.append(list[i])
+    for star in list:
+        if star.temperate < pivot.temperate:
+            smallerThanPivot.append(star)
+        elif star.temperature == pivot.temperature:
+            equalToPivot.append(star)
+        elif star.temperature > pivot.temperature:
+            greaterThanPivot.append(star)
 
     return quickSortTemp(smallerThanPivot) + equalToPivot + quickSortTemp(greaterThanPivot)
 
 
 def quickSortDistance(list):
+    if len(list) <= 1:
+        return list
+
     pivot = list[len(list) // 2]
 
     smallerThanPivot = []
     equalToPivot = []
     greaterThanPivot = []
 
-    for i in list:
-        if list[i].distance < pivot.distance:
-            smallerThanPivot.append(list[i])
+    for star in list:
+        if star.distance < pivot.distance:
+            smallerThanPivot.append(star)
+        elif star.distance == pivot.distance:
+            equalToPivot.append(star)
+        elif star.distance > pivot.distance:
+            greaterThanPivot.append(star)
 
-        elif list[i].distance == pivot.distance:
-            equalToPivot.append(list[i])
-
-        elif list[i].distance > pivot.distance:
-            greaterThanPivot.append(list[i])
-
-    return quickSortTemp(smallerThanPivot) + equalToPivot + quickSortTemp(greaterThanPivot)
+    return quickSortDistance(smallerThanPivot) + equalToPivot + quickSortDistance(greaterThanPivot)
