@@ -1,52 +1,52 @@
-def heapifyTemp(arr, n, i):
+def heapifyTemp(list, n, i):
     largest = i
     left = 2 * i + 1
     right = 2 * i + 2
 
-    if left < n and arr[i].temperature < arr[left].temperature:
+    if left < n and list[i].temperature < list[left].temperature:
         largest = left
 
-    if right < n and arr[largest].temperature < arr[right].temperature:
+    if right < n and list[largest].temperature < list[right].temperature:
         largest = right
 
     if largest != i:
-        (arr[i], arr[largest]) = (arr[largest], arr[i])
-        heapifyTemp(arr, n, largest)
+        (list[i], list[largest]) = (list[largest], list[i])
+        heapifyTemp(list, n, largest)
 
 
-def heapSortTemp(arr):
-    n = len(arr)
+def heapSortTemp(list):
+    n = len(list)
 
     for i in range(n // 2 - 1, -1, -1):
-        heapifyTemp(arr, n, i)
+        heapifyTemp(list, n, i)
 
     for i in range(n - 1, 0, -1):
-        (arr[i], arr[0]) = (arr[0], arr[i])
-        heapifyTemp(arr, i, 0)
+        (list[i], list[0]) = (list[0], list[i])
+        heapifyTemp(list, i, 0)
 
 
-def heapifyDist(arr, n, i):
+def heapifyDist(list, n, i):
     largest = i
     left = 2 * i + 1
     right = 2 * i + 2
 
-    if left < n and arr[i].distance < arr[left].distance:
+    if left < n and list[i].distance < list[left].distance:
         largest = left
 
-    if right < n and arr[largest].distance < arr[right].distance:
+    if right < n and list[largest].distance < list[right].distance:
         largest = right
 
     if largest != i:
-        (arr[i], arr[largest]) = (arr[largest], arr[i])
-        heapifyDist(arr, n, largest)
+        (list[i], list[largest]) = (list[largest], list[i])
+        heapifyDist(list, n, largest)
 
 
-def heapSortDist(arr):
-    n = len(arr)
+def heapSortDist(list):
+    n = len(list)
 
     for i in range(n // 2 - 1, -1, -1):
-        heapifyDist(arr, n, i)
+        heapifyDist(list, n, i)
 
     for i in range(n - 1, 0, -1):
-        (arr[i], arr[0]) = (arr[0], arr[i])
-        heapifyDist(arr, i, 0)
+        (list[i], list[0]) = (list[0], list[i])
+        heapifyDist(list, i, 0)
