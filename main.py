@@ -316,8 +316,8 @@ def main():
     starsToShow = 0
     st.subheader("Top 26 stars")
     list = st.session_state.sorting_list
-    if len(list) < 26:
-      starsToShow = len(list) + 1
+    if len(list) < 25:
+      starsToShow = len(list)
     else:
       starsToShow = 26
     for j in range(len(list) - 1, len(list) - starsToShow, -1):
