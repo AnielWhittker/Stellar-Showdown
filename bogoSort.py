@@ -9,7 +9,7 @@ def checkForTemp(list):
 
 def checkForDistance(list):
     for i in range(len(list) - 1):
-        if list[i].distance > list[i + 1].temperature:
+        if list[i].distance > list[i + 1].distance:
             return False
 
     return True
