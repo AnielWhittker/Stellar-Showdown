@@ -169,4 +169,12 @@ def checkForTemp(list):
         if list[i].temperature > list[i + 1].temperature:
             return False
 
-    return True'''
+    return True
+    
+def bogoSortTemp(list):
+    returnList = list[:]
+
+    while(checkForTemp(returnList) == False):
+        random.shuffle(returnList)
+
+    return returnList'''
