@@ -116,24 +116,25 @@ bubbleSort = '''def bubbleSort(list):
 
 
 # quick sort algorithm code snippet
-quickSort = '''def quickSort(list):
+quickSort = '''def quickSortTemp(list):
+    if len(list) <= 1:
+        return list
+
     pivot = list[len(list) // 2]
 
     smallerThanPivot = []
     equalToPivot = []
     greaterThanPivot = []
 
-    for i in list:
-        if list[i] < pivot:
-            smallerThanPivot.append(list[i])
+    for star in list:
+        if star.temperature < pivot.temperature:
+            smallerThanPivot.append(star)
+        elif star.temperature == pivot.temperature:
+            equalToPivot.append(star)
+        elif star.temperature > pivot.temperature:
+            greaterThanPivot.append(star)
 
-        elif list[i] == pivot:
-            equalToPivot.append(list[i])
-
-        elif list[i] > pivot:
-            greaterThanPivot.append(list[i])
-
-    return quickSort(smallerThanPivot) + equalToPivot + quickSort(greaterThanPivot)'''
+    return quickSortTemp(smallerThanPivot) + equalToPivot + quickSortTemp(greaterThanPivot)'''
 
 # bitonic sort algorithm code snippet
 bitonicSort = '''def bitonicMerge(list, low, count, direction):
@@ -153,3 +154,19 @@ def bitonicSort(list, low, count, direction):
         bitonicSort(list, low, k, 1)
         bitonicSort(list, low + k, k, 0)
         bitonicMerge(list, low, count, direction)'''
+
+# tim sort algorithm code snippet
+timSort = '''# the built in sorting algorithm in python utilizes timsort which is why this is a viable implementation
+def timSortTemp(list):
+    list.sort(key=lambda x: x.temperature)
+    return list'''
+
+# bogo sort algorithm code snippet
+bogoSort = '''import random
+
+def checkForTemp(list):
+    for i in range(len(list) - 1):
+        if list[i].temperature > list[i + 1].temperature:
+            return False
+
+    return True'''

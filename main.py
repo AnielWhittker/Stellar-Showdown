@@ -14,6 +14,9 @@ import math
 import sortingCodes as sc
 import base64
 
+with open("README.md", "r") as file:
+  readme = file.read()
+
 # takes in an imge file and sets it as the background image
 def background(imageFile):
   with open(imageFile, "rb") as imageFile:
@@ -36,7 +39,7 @@ def main():
   if "sorting_list" not in st.session_state:
     st.session_state.sorting_list = r.list
 
-  background('image.jpg') # add background image
+  background("image.jpg") # add background image
 
   st.sidebar.title("Stellar Showdown")
   st.sidebar.subheader("******using the HYG Database of 120,000 Stars******")
@@ -105,7 +108,7 @@ def main():
     st.session_state.usedAlgorithimTemp = {}
 
   # it sets button presed to True in the session state
-  if st.sidebar.button("Sort)"):
+  if st.sidebar.button("Sort"):
     st.session_state.button_pressed = True
   st.sidebar.write("(press reset before pressing sort again)")
 
@@ -295,6 +298,20 @@ def main():
       st.code(sc.mergeSort, language="python")
     elif choice2 == "Selection Sort":
       st.code(sc.selectionSort, language="python")
+    elif choice2 == "Bubble Sort":
+      st.code(sc.bubbleSort, language="python")
+    elif choice2 == "Shell Sort":
+      st.code(sc.shellSort, language="python")
+    elif choice2 == "Quick Sort":
+      st.code(sc.quickSort, language="python")
+    elif choice2 == "TimSort":
+      st.code(sc.timSort, language="python")
+    elif choice2 == "Heap Sort":
+      st.code(sc.heapSort, language="python")
+    elif choice2 == "Bogo Sort":
+      st.code(sc.bogoSort, language="python")
+    elif choice2 == "Bitonic Sort":
+      st.code(sc.bitonicSort, language="python")
   
   # if tthe button is pressed, it will display the last 25 stars in the list
   if st.sidebar.checkbox("Show stars"):
@@ -350,6 +367,20 @@ def main():
   st.sidebar.write("---")
   st.sidebar.write("Created by: The Stellar Coders")
   st.sidebar.write("Neema Owji, Maxwell Evans, and Aniel Whittker Melian")
+
+  if "about" not in st.session_state:
+    st.session_state.about = False
+    st.session_state.text = st.empty()
+
+  if st.sidebar.button("about"):
+    st.session_state.about = not st.session_state.about
+
+  if st.session_state.about:
+    # Add text
+    st.session_state.text = st.write("#" + readme)
+  else:
+    # Remove text
+    st.session_state.text = st.empty()
 
 if __name__ == "__main__":
   main()
