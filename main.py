@@ -317,9 +317,14 @@ def main():
   if st.sidebar.checkbox("Show stars"):
     st.header("Stars by " + choice1)
     stringStars = ""
+    starsToShow = 0
     st.subheader("Top 26 stars")
     list = st.session_state.sorting_list
-    for j in range(len(list) - 1, len(list) - 26, -1):
+    if len(list) < 26:
+      starsToShow = len(list)
+    else:
+      starsToShow = 26
+    for j in range(len(list) - 1, len(list) - starsToShow, -1):
       temperature = str("{:.5f}".format(st.session_state.sorting_list[j].temperature))
       # if the color index was empty, therfore set to 0, set to "N/A"
       if temperature == str(4600 * ((1 / 1.7) + (1 / 0.62))):
@@ -328,7 +333,7 @@ def main():
     st.code(stringStars)
     st.subheader("Last 26 stars")
     stringStars = ""
-    for j in range(0, 26):
+    for j in range(0, starsToShow):
       temperature = str("{:.5f}".format(st.session_state.sorting_list[j].temperature))
       # if the color index was empty, therfore set to 0, set to "N/A"
       if temperature == str(4600 * ((1 / 1.7) + (1 / 0.62))):

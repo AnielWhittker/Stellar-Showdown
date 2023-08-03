@@ -8,3 +8,5 @@ Star data sourced from the HYG Database: https://github.com/astronexus/HYG-Datab
 Stock image sourced from Pexels: https://www.pexels.com/photo/milky-way-illustration-1169754/
 
 some concepts for sorting algorithms sourced from GeeksforGeeks: https://www.geeksforgeeks.org/sorting-algorithms/
+
+Our Github repo link: https://github.com/AnielWhittker/Stellar-Showdown
