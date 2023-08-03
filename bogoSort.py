@@ -18,7 +18,7 @@ def bogoSortTemp(list):
     returnList = list[:]
 
     while(checkForTemp(returnList) == False):
-        random.shuffle(list)
+        random.shuffle(returnList)
 
     return returnList
 
@@ -27,6 +27,6 @@ def bogoSortDistance(list):
     returnList = list[:]
 
     while(checkForDistance(returnList) == False):
-        random.shuffle(list)
+        random.shuffle(returnList)
 
     return returnList
