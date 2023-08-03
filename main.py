@@ -314,12 +314,12 @@ def main():
     st.header("Stars by " + choice1)
     stringStars = ""
     starsToShow = 0
-    st.subheader("Top 26 stars")
     list = st.session_state.sorting_list
     if len(list) < 25:
       starsToShow = len(list)
     else:
       starsToShow = 26
+    st.subheader("Top " + starsToShow-1 + " stars")
     for j in range(len(list) - 1, len(list) - starsToShow, -1):
       temperature = str("{:.5f}".format(st.session_state.sorting_list[j].temperature))
       # if the color index was empty, therfore set to 0, set to "N/A"
@@ -327,7 +327,7 @@ def main():
         temperature = "N/A"
       stringStars += "Star " + str(st.session_state.sorting_list[j].star_id) + ":" + " Distance from Earth, " + str("{:.5f}".format(st.session_state.sorting_list[j].distance)) + " light-years. Temperature " + temperature + " Kelvin" + "\n"
     st.code(stringStars)
-    st.subheader("Last 26 stars")
+    st.subheader("Bottom " + starsToShow + " stars")
     stringStars = ""
     for j in range(0, starsToShow):
       temperature = str("{:.5f}".format(st.session_state.sorting_list[j].temperature))
