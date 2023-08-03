@@ -9,6 +9,8 @@ import timSort as ts
 import quickSort as qs
 import heapSort as hs
 import bogoSort as bogo
+import bitonicSort as bitSort
+import math
 import sortingCodes as sc
 import base64
 
@@ -95,7 +97,7 @@ def main():
   # adds the choices buttons
   choice1 = st.sidebar.radio("Sort stars by", ["Distance from Earth", "Temperature"])
   choice2 = st.sidebar.radio("Which Sorting algorithm?",
-                     ["Merge Sort", "Selection Sort", "Bubble Sort", "Shell Sort", "Quick Sort", "TimSort", "Heap Sort", "Bogo Sort"])
+                     ["Merge Sort", "Selection Sort", "Bubble Sort", "Shell Sort", "Quick Sort", "TimSort", "Heap Sort", "Bogo Sort", "Bitonic Sort"])
   
   # dictionary for report(TODO)
   if "usedAlgorithimDist" not in st.session_state or "usedAlgorithimTemp" not in st.session_state:
@@ -103,13 +105,15 @@ def main():
     st.session_state.usedAlgorithimTemp = {}
 
   # it sets button presed to True in the session state
-  if st.sidebar.button("Sort"):
+  if st.sidebar.button("Sort)"):
     st.session_state.button_pressed = True
+  st.sidebar.write("(press reset before pressing sort again)")
 
   # if button pressed is True, it will run the sorting algorithm(TODO) and sets the result( string of time it took) to the session state, sets button pressed to False in state
   if st.session_state.button_pressed and st.session_state.sort_result is None:
     st.session_state.sorting_list = r.list[star_range[0]:star_range[1]]
     list = st.session_state.sorting_list
+    
     if choice1 == "Distance from Earth" and choice2 == "Merge Sort":
       start = time.time()
       ms.mergeSortDistance(st.session_state.sorting_list, 0, len(list) - 1)
@@ -200,7 +204,6 @@ def main():
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
 
-
     elif choice1 == "Distance from Earth" and choice2 == "TimSort":
       start = time.time()
       st.session_state.sorting_list = ts.timSortDist(st.session_state.sorting_list)
@@ -254,6 +257,32 @@ def main():
       st.session_state.sort_result = choice2 + " Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
+    
+    elif choice1 == "Distance from Earth" and choice2 == "Bitonic Sort":
+      if math.log2(len(list)) % 2 == 0:
+        start = time.time()
+        bitSort.bitonicSortDist(st.session_state.sorting_list, 0, len(list), 1)
+        end = time.time()
+        st.session_state.usedAlgorithimDist[choice2] = str("{:.4f}".format(end - start))
+        st.session_state.sort_result = choice2 + " Algorithm took: " + str(
+          "{:.4f}".format(end - start)) + " seconds"
+        st.session_state.button_pressed = False
+      else:
+        st.sidebar.write("Please enter a power of 2 as the range")
+        st.session_state.button_pressed = False
+    
+    elif choice1 == "Temperature" and choice2 == "Bitonic Sort":
+      if math.log2(len(list)) % 2 == 0:
+        start = time.time()
+        bitSort.bitonicSortTemp(st.session_state.sorting_list, 0, len(list), 1)
+        end = time.time()
+        st.session_state.usedAlgorithimTemp[choice2] = str("{:.4f}".format(end - start))
+        st.session_state.sort_result = choice2 + " Algorithm took: " + str(
+          "{:.4f}".format(end - start)) + " seconds"
+        st.session_state.button_pressed = False
+      else:
+        st.sidebar.write("Please enter a power of 2 as the range")
+        st.session_state.button_pressed = False
 
   # displays the result string and code to screen if result is not None
   if st.session_state.sort_result is not None:
