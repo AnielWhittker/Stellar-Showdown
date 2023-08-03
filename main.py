@@ -120,6 +120,7 @@ def main():
     st.session_state.pressed = True
     st.session_state.run_sortsTemp = ras.runAllSorts(listRun, "temp")
     st.session_state.run_sortsDist = ras.runAllSorts(listRun, "distance")
+  st.sidebar.write("Takes a couple minutes to run all sorts")
   
   string_temp = ""
   string_dist = ""
