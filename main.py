@@ -5,6 +5,7 @@ import mergeSort as ms
 import selectionSort as ss
 import bubbleSort as bsort
 import shellSort as shs
+import timSort as ts
 import quickSort as qs
 import heapSort as hs
 import bogoSort as bogo
@@ -193,6 +194,25 @@ def main():
     elif choice1 == "Temperature" and choice2 == "Quick Sort":
       start = time.time()
       st.session_state.sorting_list = qs.quickSortTemp(st.session_state.sorting_list)
+      end = time.time()
+      st.session_state.usedAlgorithimTemp[choice2] = str("{:.4f}".format(end - start))
+      st.session_state.sort_result = choice2 + " Algorithm took: " + str(
+        "{:.4f}".format(end - start)) + " seconds"
+      st.session_state.button_pressed = False
+
+
+    elif choice1 == "Distance from Earth" and choice2 == "TimSort":
+      start = time.time()
+      st.session_state.sorting_list = ts.timSortDist(st.session_state.sorting_list)
+      end = time.time()
+      st.session_state.usedAlgorithimDist[choice2] = str("{:.4f}".format(end - start))
+      st.session_state.sort_result = choice2 + " Algorithm took: " + str(
+        "{:.4f}".format(end - start)) + " seconds"
+      st.session_state.button_pressed = False
+
+    elif choice1 == "Temperature" and choice2 == "TimSort":
+      start = time.time()
+      st.session_state.sorting_list = ts.timSortTemp(st.session_state.sorting_list)
       end = time.time()
       st.session_state.usedAlgorithimTemp[choice2] = str("{:.4f}".format(end - start))
       st.session_state.sort_result = choice2 + " Algorithm took: " + str(
