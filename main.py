@@ -252,7 +252,7 @@ def main():
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
     
-    elif choice1 == "Temperature" and choice2 == "bogo Sort":
+    elif choice1 == "Temperature" and choice2 == "Bogo Sort":
       start = time.time()
       st.session_state.sorting_list = bogo.bogoSortTemp(st.session_state.sorting_list)
       end = time.time()
