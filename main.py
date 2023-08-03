@@ -13,6 +13,7 @@ import bitonicSort as bitSort
 import math
 import sortingCodes as sc
 import base64
+import runAllSorts as ras
 
 with open("README.md", "r") as file:
   readme = file.read()
@@ -50,6 +51,8 @@ def main():
     st.session_state.slider_moved = False
   if 'input_changed' not in st.session_state:
     st.session_state.input_changed = False
+  if 'pressed' not in st.session_state:
+    st.session_state.pressed = False
 
   star_range = st.sidebar.slider(
     'adjust range of stars',
@@ -107,6 +110,28 @@ def main():
   if st.sidebar.button("Sort"):
     st.session_state.button_pressed = True
   st.sidebar.write("(press reset before pressing sort again)")
+
+  if "run_sortsTemp" not in st.session_state or "run_sortsDist" not in st.session_state:
+    st.session_state.run_sortsTemp = {}
+    st.session_state.run_sortsDist = {}
+  
+  listRun = r.list[0:16385]
+  if st.sidebar.button("Run all sorts"):
+    st.session_state.pressed = True
+    st.session_state.run_sortsTemp = ras.runAllSorts(listRun, "temp")
+    st.session_state.run_sortsDist = ras.runAllSorts(listRun, "distance")
+  
+  string_temp = ""
+  string_dist = ""
+  if st.session_state.pressed:
+    for key, value in st.session_state.run_sortsTemp.items():
+      string_temp += key + " Algorithm took: " + value + " seconds" + ", sorted 16,384 stars\n"
+    for key, value in st.session_state.run_sortsDist.items():
+      string_dist += key + " Algorithm took: " + value + " seconds" + ", sorted 16,384 stars\n"
+    st.subheader("Sort by distance, all sorts")
+    st.code(string_dist)
+    st.subheader("Sort by temperature, all sorts")
+    st.code(string_temp)
 
   # if button pressed is True, it will run the sorting algorithm(TODO) and sets the result( string of time it took) to the session state, sets button pressed to False in state
   if st.session_state.button_pressed and st.session_state.sort_result is None:
@@ -363,6 +388,9 @@ def main():
     st.session_state.sort_result = None
     if "sorting_list" in st.session_state:
       del st.session_state.sorting_list
+    st.session_state.pressed = False
+    st.session_state.run_sortsTemp = {}
+    st.session_state.run_sortsDist = {}
     st.experimental_rerun()
   
   st.sidebar.write("---")

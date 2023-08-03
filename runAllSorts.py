@@ -13,67 +13,85 @@ import bitonicSort as bitSort
 def runAllSorts(list, sortBy):
     returnDict = {}
 
+    temp = list[:]
+
     if sortBy == "temp":
 
         start = time.time()
-        ms.mergeSortTemperature(list, 0, len(list) - 1)
+        ms.mergeSortTemperature(temp, 0, len(list) - 1)
         end = time.time()
+
+        temp = list[:]
 
         returnDict["Merge Sort"] = str("{:.4f}".format(end - start))
 
 
 
         start = time.time()
-        ss.selectionSortTemp(list)
+        ss.selectionSortTemp(temp)
         end = time.time()
+
+        temp = list[:]
 
         returnDict["Selection Sort"] = str("{:.4f}".format(end - start))
 
 
 
         start = time.time()
-        bsort.bubbleSortTemp(list)
+        bsort.bubbleSortTemp(temp)
         end = time.time()
+
+        temp = list[:]
 
         returnDict["Bubble Sort"] = str("{:.4f}".format(end - start))
 
 
 
         start = time.time()
-        shs.shellSortTemp(list)
+        shs.shellSortTemp(temp)
         end = time.time()
+
+        temp = list[:]
 
         returnDict["Shell Sort"] = str("{:.4f}".format(end - start))
 
 
 
         start = time.time()
-        qs.quickSortTemp(list)
+        qs.quickSortTemp(temp)
         end = time.time()
+
+        temp = list[:]
 
         returnDict["Quick Sort"] = str("{:.4f}".format(end - start))
 
 
 
         start = time.time()
-        ts.timSortTemp(list)
+        ts.timSortTemp(temp)
         end = time.time()
+
+        temp = list[:]
 
         returnDict["Tim Sort"] = str("{:.4f}".format(end - start))
 
 
 
         start = time.time()
-        hs.heapSortTemp(list)
+        hs.heapSortTemp(temp)
         end = time.time()
+
+        temp = list[:]
 
         returnDict["Heap Sort"] = str("{:.4f}".format(end - start))
 
 
 
         start = time.time()
-        bitSort.bitonicSortTemp(list)
+        bitSort.bitonicSortTemp(temp, 0, len(temp), 1)
         end = time.time()
+
+        temp = list[:]
 
         returnDict["Bitonic Sort"] = str("{:.4f}".format(end - start))
 
@@ -81,63 +99,77 @@ def runAllSorts(list, sortBy):
     elif sortBy == "distance":
 
         start = time.time()
-        ms.mergeSortDistance(list, 0, len(list) - 1)
+        ms.mergeSortDistance(temp, 0, len(list) - 1)
         end = time.time()
+
+        temp = list[:]
 
         returnDict["Merge Sort"] = str("{:.4f}".format(end - start))
 
 
 
         start = time.time()
-        ss.selectionSortDist(list)
+        ss.selectionSortDist(temp)
         end = time.time()
+
+        temp = list[:]
 
         returnDict["Selection Sort"] = str("{:.4f}".format(end - start))
 
 
 
         start = time.time()
-        bsort.bubbleSortDist(list)
+        bsort.bubbleSortDist(temp)
         end = time.time()
+
+        temp = list[:]
 
         returnDict["Bubble Sort"] = str("{:.4f}".format(end - start))
 
 
 
         start = time.time()
-        shs.shellSortDistance(list)
+        shs.shellSortDistance(temp)
         end = time.time()
+
+        temp = list[:]
 
         returnDict["Shell Sort"] = str("{:.4f}".format(end - start))
 
 
 
         start = time.time()
-        qs.quickSortDistance(list)
+        qs.quickSortDistance(temp)
         end = time.time()
+
+        temp = list[:]
 
         returnDict["Quick Sort"] = str("{:.4f}".format(end - start))
 
 
 
         start = time.time()
-        ts.timSortDist(list)
+        ts.timSortDist(temp)
         end = time.time()
+
+        temp = list[:]
 
         returnDict["Tim Sort"] = str("{:.4f}".format(end - start))
 
 
 
         start = time.time()
-        hs.heapSortDist(list)
+        hs.heapSortDist(temp)
         end = time.time()
+
+        temp = list[:]
 
         returnDict["Heap Sort"] = str("{:.4f}".format(end - start))
 
 
 
         start = time.time()
-        bitSort.bitonicSortDist(list)
+        bitSort.bitonicSortDist(temp, 0, len(list), 1)
         end = time.time()
 
         returnDict["Bitonic Sort"] = str("{:.4f}".format(end - start))
