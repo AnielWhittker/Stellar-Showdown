@@ -97,8 +97,9 @@ def main():
                      ["Merge Sort", "Selection Sort", "Bubble Sort", "Shell Sort", "Quick Sort", "TimSort", "Heap Sort", "Bogo Sort"])
   
   # dictionary for report(TODO)
-  if "usedAlgorithim" not in st.session_state:
-    st.session_state.usedAlgorithim = {}
+  if "usedAlgorithimDist" not in st.session_state or "usedAlgorithimTemp" not in st.session_state:
+    st.session_state.usedAlgorithimDist = {}
+    st.session_state.usedAlgorithimTemp = {}
 
   # it sets button presed to True in the session state
   if st.sidebar.button("Sort"):
@@ -112,7 +113,7 @@ def main():
       start = time.time()
       ms.mergeSortDistance(st.session_state.sorting_list, 0, len(list) - 1)
       end = time.time()
-      st.session_state.usedAlgorithim[choice2] = str("{:.4f}".format(end - start))
+      st.session_state.usedAlgorithimDist[choice2] = str("{:.4f}".format(end - start))
       st.session_state.sort_result = choice2 + " Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
@@ -121,7 +122,7 @@ def main():
       start = time.time()
       ms.mergeSortTemperature(st.session_state.sorting_list, 0, len(list) - 1)
       end = time.time()
-      st.session_state.usedAlgorithim[choice2] = str("{:.4f}".format(end - start))
+      st.session_state.usedAlgorithimTemp[choice2] = str("{:.4f}".format(end - start))
       st.session_state.sort_result = choice2 + " Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
@@ -130,7 +131,7 @@ def main():
       start = time.time()
       ss.selectionSortDist(st.session_state.sorting_list)
       end = time.time()
-      st.session_state.usedAlgorithim[choice2] = str("{:.4f}".format(end - start))
+      st.session_state.usedAlgorithimDist[choice2] = str("{:.4f}".format(end - start))
       st.session_state.sort_result = choice2 + " Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
@@ -139,7 +140,7 @@ def main():
       start = time.time()
       ss.selectionSortTemp(st.session_state.sorting_list)
       end = time.time()
-      st.session_state.usedAlgorithim[choice2] = str("{:.4f}".format(end - start))
+      st.session_state.usedAlgorithimTemp[choice2] = str("{:.4f}".format(end - start))
       st.session_state.sort_result = choice2 + " Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
@@ -148,7 +149,7 @@ def main():
       start = time.time()
       st.session_state.sorting_list = bsort.bubbleSortDist(st.session_state.sorting_list)
       end = time.time()
-      st.session_state.usedAlgorithim[choice2] = str("{:.4f}".format(end - start))
+      st.session_state.usedAlgorithimDist[choice2] = str("{:.4f}".format(end - start))
       st.session_state.sort_result = choice2 + " Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
@@ -157,7 +158,7 @@ def main():
       start = time.time()
       st.session_state.sorting_list = bsort.bubbleSortTemp(st.session_state.sorting_list)
       end = time.time()
-      st.session_state.usedAlgorithim[choice2] = str("{:.4f}".format(end - start))
+      st.session_state.usedAlgorithimTemp[choice2] = str("{:.4f}".format(end - start))
       st.session_state.sort_result = choice2 + " Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
@@ -166,7 +167,7 @@ def main():
       start = time.time()
       st.session_state.sorting_list = shs.shellSortDistance(st.session_state.sorting_list)
       end = time.time()
-      st.session_state.usedAlgorithim[choice2] = str("{:.4f}".format(end - start))
+      st.session_state.usedAlgorithimDist[choice2] = str("{:.4f}".format(end - start))
       st.session_state.sort_result = choice2 + " Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
@@ -175,7 +176,7 @@ def main():
       start = time.time()
       st.session_state.sorting_list = shs.shellSortTemp(st.session_state.sorting_list)
       end = time.time()
-      st.session_state.usedAlgorithim[choice2] = str("{:.4f}".format(end - start))
+      st.session_state.usedAlgorithimTemp[choice2] = str("{:.4f}".format(end - start))
       st.session_state.sort_result = choice2 + " Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
@@ -184,7 +185,7 @@ def main():
       start = time.time()
       st.session_state.sorting_list = qs.quickSortDistance(st.session_state.sorting_list)
       end = time.time()
-      st.session_state.usedAlgorithim[choice2] = str("{:.4f}".format(end - start))
+      st.session_state.usedAlgorithimDist[choice2] = str("{:.4f}".format(end - start))
       st.session_state.sort_result = choice2 + " Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
@@ -193,7 +194,7 @@ def main():
       start = time.time()
       st.session_state.sorting_list = qs.quickSortTemp(st.session_state.sorting_list)
       end = time.time()
-      st.session_state.usedAlgorithim[choice2] = str("{:.4f}".format(end - start))
+      st.session_state.usedAlgorithimTemp[choice2] = str("{:.4f}".format(end - start))
       st.session_state.sort_result = choice2 + " Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
@@ -202,7 +203,7 @@ def main():
       start = time.time()
       hs.heapSortDist(st.session_state.sorting_list)
       end = time.time()
-      st.session_state.usedAlgorithim[choice2] = str("{:.4f}".format(end - start))
+      st.session_state.usedAlgorithimDist[choice2] = str("{:.4f}".format(end - start))
       st.session_state.sort_result = choice2 + " Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
@@ -211,7 +212,7 @@ def main():
       start = time.time()
       hs.heapSortTemp(st.session_state.sorting_list)
       end = time.time()
-      st.session_state.usedAlgorithim[choice2] = str("{:.4f}".format(end - start))
+      st.session_state.usedAlgorithimTemp[choice2] = str("{:.4f}".format(end - start))
       st.session_state.sort_result = choice2 + " Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
@@ -220,7 +221,7 @@ def main():
       start = time.time()
       st.session_state.sorting_list = bogo.bogoSortDistance(st.session_state.sorting_list)
       end = time.time()
-      st.session_state.usedAlgorithim[choice2] = str("{:.4f}".format(end - start))
+      st.session_state.usedAlgorithimDist[choice2] = str("{:.4f}".format(end - start))
       st.session_state.sort_result = choice2 + " Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
@@ -229,7 +230,7 @@ def main():
       start = time.time()
       st.session_state.sorting_list = bogo.bogoSortTemp(st.session_state.sorting_list)
       end = time.time()
-      st.session_state.usedAlgorithim[choice2] = str("{:.4f}".format(end - start))
+      st.session_state.usedAlgorithimTemp[choice2] = str("{:.4f}".format(end - start))
       st.session_state.sort_result = choice2 + " Algorithm took: " + str(
         "{:.4f}".format(end - start)) + " seconds"
       st.session_state.button_pressed = False
@@ -250,6 +251,7 @@ def main():
   if st.sidebar.checkbox("Show stars"):
     st.header("Stars by " + choice1)
     stringStars = ""
+    st.subheader("Top 26 stars")
     list = st.session_state.sorting_list
     for j in range(len(list) - 1, len(list) - 26, -1):
       temperature = str("{:.5f}".format(st.session_state.sorting_list[j].temperature))
@@ -258,19 +260,37 @@ def main():
         temperature = "N/A"
       stringStars += "Star " + str(st.session_state.sorting_list[j].star_id) + ":" + " Distance from Earth, " + str("{:.5f}".format(st.session_state.sorting_list[j].distance)) + " light-years. Temperature " + temperature + " Kelvin" + "\n"
     st.code(stringStars)
-  
-  string = ""
-  if len(st.session_state.usedAlgorithim) > 0:
-    for key, value in st.session_state.usedAlgorithim.items():
-      string += key + " Algorithm took: " + value + " seconds" + "\n"
+    st.subheader("Last 26 stars")
+    stringStars = ""
+    for j in range(0, 26):
+      temperature = str("{:.5f}".format(st.session_state.sorting_list[j].temperature))
+      # if the color index was empty, therfore set to 0, set to "N/A"
+      if temperature == str(4600 * ((1 / 1.7) + (1 / 0.62))):
+        temperature = "N/A"
+      stringStars += "Star " + str(st.session_state.sorting_list[j].star_id) + ":" + " Distance from Earth, " + str("{:.5f}".format(st.session_state.sorting_list[j].distance)) + " light-years. Temperature " + temperature + " Kelvin" + "\n"
+    st.code(stringStars)
+
+  string_dist = ""
+  if len(st.session_state.usedAlgorithimDist) > 0:
+    for key, value in st.session_state.usedAlgorithimDist.items():
+      string_dist += key + " Algorithm took: " + value + " seconds" + "\n"
+
+  string_temp = ""
+  if len(st.session_state.usedAlgorithimTemp) > 0:
+    for key, value in st.session_state.usedAlgorithimTemp.items():
+      string_temp += key + " Algorithm took: " + value + " seconds" + "\n"
 
   # Show the report
   if st.sidebar.checkbox("Show report"):
-    if len(st.session_state.usedAlgorithim) == 0:
+    if len(st.session_state.usedAlgorithimDist) == 0 and len(st.session_state.usedAlgorithimTemp) == 0:
       st.sidebar.write("No sorting has been done yet")
     else:
       st.header("Report")
-      st.code(string)
+      st.subheader("Sort by distance")
+      st.code(string_dist)
+      st.subheader("Sort by temperature")
+      st.code(string_temp)
+
 
   if st.sidebar.button("Reset"):
     st.session_state.sort_result = None

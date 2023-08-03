@@ -9,7 +9,7 @@ def quickSortTemp(list):
     greaterThanPivot = []
 
     for star in list:
-        if star.temperate < pivot.temperate:
+        if star.temperature < pivot.temperature:
             smallerThanPivot.append(star)
         elif star.temperature == pivot.temperature:
             equalToPivot.append(star)
