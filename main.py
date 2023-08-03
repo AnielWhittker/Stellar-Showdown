@@ -317,7 +317,7 @@ def main():
     st.subheader("Top 26 stars")
     list = st.session_state.sorting_list
     if len(list) < 26:
-      starsToShow = len(list)
+      starsToShow = len(list) + 1
     else:
       starsToShow = 26
     for j in range(len(list) - 1, len(list) - starsToShow, -1):
@@ -329,7 +329,7 @@ def main():
     st.code(stringStars)
     st.subheader("Last 26 stars")
     stringStars = ""
-    for j in range(0, starsToShow + 1):
+    for j in range(0, starsToShow):
       temperature = str("{:.5f}".format(st.session_state.sorting_list[j].temperature))
       # if the color index was empty, therfore set to 0, set to "N/A"
       if temperature == str(4600 * ((1 / 1.7) + (1 / 0.62))):
