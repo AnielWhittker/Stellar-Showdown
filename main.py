@@ -44,42 +44,38 @@ def main():
   st.sidebar.title("Stellar Showdown")
   st.sidebar.subheader("******using the HYG Database of 120,000 Stars******")
 
-  if 'input_changed' not in st.session_state:
-    st.session_state.input_changed = False
-  if 'slider_moved' not in st.session_state:
-    st.session_state.slider_moved = False
   if 'star_range' not in st.session_state:
     st.session_state.star_range = (0, 119614)
-  if 'input_range' not in st.session_state:
-    st.session_state.input_range = 0
+  if 'slider_moved' not in st.session_state:
+    st.session_state.slider_moved = False
+  if 'input_changed' not in st.session_state:
+    st.session_state.input_changed = False
 
   star_range = st.sidebar.slider(
     'adjust range of stars',
     0, 119614, st.session_state.star_range
   )
 
-  # Check if the slider has been moved
-  if star_range != st.session_state.star_range:
-    st.session_state.slider_moved = True
-    st.session_state.star_range = star_range
-
   input_range = st.sidebar.number_input(
     "manually enter range of stars", 
     min_value=0, 
     max_value=119614, 
-    value=st.session_state.input_range, 
+    value=st.session_state.star_range[1],
     step=1, 
     key="range"
   )
-  # st.sidebar.write("try a power of 2")
 
-  # Check if the manual input has been changed
-  if input_range != st.session_state.input_range:
+  if star_range != st.session_state.star_range:
+    st.session_state.slider_moved = True
+    st.session_state.star_range = star_range
+    st.session_state.input_range = star_range[1]
+    input_range = star_range[1]
+
+  if input_range != st.session_state.star_range[1]:
     st.session_state.input_changed = True
-    st.session_state.input_range = input_range
     st.session_state.star_range = (0, input_range)
+    star_range = (0, input_range)
 
-  # If the slider was moved last, use the slider range; otherwise, use the manual input
   if st.session_state.slider_moved:
     st.sidebar.write('range:', star_range)
     st.session_state.slider_moved = False
@@ -333,7 +329,7 @@ def main():
     st.code(stringStars)
     st.subheader("Last 26 stars")
     stringStars = ""
-    for j in range(0, starsToShow):
+    for j in range(0, starsToShow + 1):
       temperature = str("{:.5f}".format(st.session_state.sorting_list[j].temperature))
       # if the color index was empty, therfore set to 0, set to "N/A"
       if temperature == str(4600 * ((1 / 1.7) + (1 / 0.62))):
