@@ -70,3 +70,6 @@ def mergeSortDistance(list, start, end):
     mergeSortDistance(list, start, mid)
     mergeSortDistance(list, mid+1, end)
     mergeDistance(list, start, mid, end)
+
+
+# source: Aman lecture sorting video
