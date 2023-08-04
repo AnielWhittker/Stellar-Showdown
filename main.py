@@ -362,9 +362,7 @@ def main():
       # if the color index was empty, therfore set to 0, set to "N/A"
       if temperature == str(4600 * ((1 / 1.7) + (1 / 0.62))):
         temperature = "N/A"
-      stringStars += "Star " + str(st.session_state.sorting_list[j].star_id) + ":" + " Distance from Earth, " 
-      + str("{:.5f}".format(st.session_state.sorting_list[j].distance)) + " light-years. Temperature " 
-      + temperature + " Kelvin" + "\n"
+      stringStars += "Star " + str(st.session_state.sorting_list[j].star_id) + ":" + " Distance from Earth, " + str("{:.5f}".format(st.session_state.sorting_list[j].distance)) + " light-years. Temperature " + temperature + " Kelvin" + "\n"
     st.code(stringStars)
 
     st.subheader("Bottom " + str(starsToShow) + " stars")
@@ -375,9 +373,7 @@ def main():
       # if the color index was empty, therfore set to 0, set to "N/A"
       if temperature == str(4600 * ((1 / 1.7) + (1 / 0.62))):
         temperature = "N/A"
-      stringStars += "Star " + str(st.session_state.sorting_list[j].star_id) + ":" + " Distance from Earth, " 
-      + str("{:.5f}".format(st.session_state.sorting_list[j].distance)) + " light-years. Temperature " 
-      + temperature + " Kelvin" + "\n"
+      stringStars += "Star " + str(st.session_state.sorting_list[j].star_id) + ":" + " Distance from Earth, " + str("{:.5f}".format(st.session_state.sorting_list[j].distance)) + " light-years. Temperature " + temperature + " Kelvin" + "\n"
     st.code(stringStars)
   
   # it adds the report dictionary keys and values to a string
