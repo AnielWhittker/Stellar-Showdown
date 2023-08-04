@@ -55,7 +55,7 @@ def main():
   if 'input_changed' not in st.session_state:
     st.session_state.input_changed = False
   if 'pressed_run_all' not in st.session_state:
-    st.session_state.pressed = False
+    st.session_state.pressed_run_all = False
 
   star_range = st.sidebar.slider(
     'adjust range of stars',
@@ -121,7 +121,7 @@ def main():
   
   listRun = r.list[0:16385]
   if st.sidebar.button("Run all sorts"):
-    st.session_state.pressed = True
+    st.session_state.pressed_run_all = True
     st.session_state.run_sortsTemp = ras.runAllSorts(listRun, "temp")
     st.session_state.run_sortsDist = ras.runAllSorts(listRun, "distance")
   st.sidebar.write("Takes a couple minutes to run all sorts")
@@ -403,7 +403,7 @@ def main():
     st.session_state.sort_result = None
     if "sorting_list" in st.session_state:
       del st.session_state.sorting_list
-    st.session_state.pressed = False
+    st.session_state.pressed_run_all = False
     st.session_state.run_sortsTemp = {}
     st.session_state.run_sortsDist = {}
     st.experimental_rerun()
