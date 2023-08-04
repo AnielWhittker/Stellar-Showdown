@@ -72,4 +72,4 @@ def mergeSortDistance(list, start, end):
     mergeDistance(list, start, mid, end)
 
 
-# source: Aman lecture sorting video
+# source: Profesor Aman's sorting lecture video
