@@ -27,4 +27,4 @@ def selectionSortDist(list):
         
     return list
 
-# Code based off of https://www.geeksforgeeks.org/python-program-for-selection-sort/
+# source: https://www.geeksforgeeks.org/selection-sort-vs-bubble-sort/?ref=gcse

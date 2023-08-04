@@ -39,3 +39,6 @@ def bitonicSortDist(list, low, count, direction):
         bitonicSortDist(list, low, k, 1)
         bitonicSortDist(list, low + k, k, 0)
         bitonicMergeDist(list, low, count, direction)
+
+
+# source: https://www.geeksforgeeks.org/bitonic-sort/
