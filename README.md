@@ -5,7 +5,6 @@ This application has been a team effort brought to you by Neema Owji (student at
 
 
 
-
 Our finished Streamlit web app (Dark mode recommended) URL: https://stellar-showdown.streamlit.app/
 
 Star data sourced from the HYG Database: https://github.com/astronexus/HYG-Database/blob/master/hyg/v2/hygxyz.csv
