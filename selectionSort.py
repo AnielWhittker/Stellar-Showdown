@@ -26,3 +26,5 @@ def selectionSortDist(list):
         list[minIndx] = temp
         
     return list
+
+# Code based off of https://www.geeksforgeeks.org/python-program-for-selection-sort/

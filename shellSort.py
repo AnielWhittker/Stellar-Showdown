@@ -47,3 +47,5 @@ def shellSortDistance(list):
         gap = gap // 2
 
     return returnList
+
+# Code based off of https://www.geeksforgeeks.org/python-program-for-shellsort/

@@ -5,55 +5,59 @@ effectively placing it in its correct position in the sorted array.
 The heap size is reduced by one and heapify operation is called on the root node to restore the max heap property.
 The last two steps are repeated until the list is sorted.'''
 def heapifyTemp(list, n, i):
-    largest = i
-    left = 2 * i + 1
-    right = 2 * i + 2
+    largest_index = i
+    left_child = 2 * i + 1
+    right_child = 2 * i + 2
 
-    if left < n and list[i].temperature < list[left].temperature:
-        largest = left
+    if left_child < n and list[i].temperature < list[left_child].temperature:
+        largest_index = left_child
 
-    if right < n and list[largest].temperature < list[right].temperature:
-        largest = right
+    if right_child < n and list[largest_index].temperature < list[right_child].temperature:
+        largest_index = right_child
 
-    if largest != i:
-        (list[i], list[largest]) = (list[largest], list[i])
-        heapifyTemp(list, n, largest)
+    if largest_index != i:
+        temp = list[i]
+        list[i] = list[largest_index]
+        list[largest_index] = temp
+        heapifyTemp(list, n, largest_index)
 
 
 def heapSortTemp(list):
-    n = len(list)
+    length = len(list)
 
-    for i in range(n // 2 - 1, -1, -1):
-        heapifyTemp(list, n, i)
+    for i in range(length // 2 - 1, -1, -1):
+        heapifyTemp(list, length, i)
 
-    for i in range(n - 1, 0, -1):
+    for i in range(length - 1, 0, -1):
         (list[i], list[0]) = (list[0], list[i])
         heapifyTemp(list, i, 0)
 
 
 def heapifyDist(list, n, i):
-    largest = i
-    left = 2 * i + 1
-    right = 2 * i + 2
+    largest_index = i
+    left_child = 2 * i + 1
+    right_child = 2 * i + 2
 
-    if left < n and list[i].distance < list[left].distance:
-        largest = left
+    if left_child < n and list[i].distance < list[left_child].distance:
+        largest_index = left_child
 
-    if right < n and list[largest].distance < list[right].distance:
-        largest = right
+    if right_child < n and list[largest_index].distance < list[right_child].distance:
+        largest_index = right_child
 
-    if largest != i:
-        (list[i], list[largest]) = (list[largest], list[i])
-        heapifyDist(list, n, largest)
+    if largest_index != i:
+        temp = list[i]
+        list[i] = list[largest_index]
+        list[largest_index] = temp
+        heapifyDist(list, n, largest_index)
 
 
 def heapSortDist(list):
-    n = len(list)
+    length = len(list)
 
-    for i in range(n // 2 - 1, -1, -1):
-        heapifyDist(list, n, i)
+    for i in range(length // 2 - 1, -1, -1):
+        heapifyDist(list, length, i)
 
-    for i in range(n - 1, 0, -1):
+    for i in range(length - 1, 0, -1):
         (list[i], list[0]) = (list[0], list[i])
         heapifyDist(list, i, 0)
 

@@ -48,3 +48,4 @@ def quickSortDistance(list):
             greaterThanPivot.append(star)
 
     return quickSortDistance(smallerThanPivot) + equalToPivot + quickSortDistance(greaterThanPivot)
+# code based off of https://www.geeksforgeeks.org/python-program-for-quicksort/
