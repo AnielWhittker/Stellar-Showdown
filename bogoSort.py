@@ -7,6 +7,7 @@ def checkForTemp(list):
 
     return True
 
+# Bogo sort algorithm works by randomly shuffling the list until it is sorted.
 def checkForDistance(list):
     for i in range(len(list) - 1):
         if list[i].distance > list[i + 1].distance:

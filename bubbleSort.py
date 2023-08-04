@@ -1,3 +1,5 @@
+# bubbleSort.py contains the bubble sort algorithm for sorting the list of stars by temperature and distance
+# The bubble sort algorithm is a sorting algorithm that repeatedly compares adjacent elements and swaps them if they are in the wrong order.
 def bubbleSortTemp(list):
     length = len(list)
     returnList = list[:]

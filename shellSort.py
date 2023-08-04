@@ -1,3 +1,8 @@
+# shellSort.py contains the shell sort algorithm for sorting the list of stars by temperature and distance
+'''Shell sort starts by sorting pairs of elements far apart from each other and progressively reducing the gap between elements 
+to be compared. At the end of this process, a final pass of insertion sort is performed on the array. 
+The interval between the elements (the gap) is calculated based on the sequence used'''
+
 def shellSortTemp(list):
     end = len(list)
     gap = end // 2

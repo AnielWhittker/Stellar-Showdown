@@ -1,3 +1,9 @@
+# heapSort.py contains the heap sort algorithm for sorting the list of stars by temperature and distance.
+'''Heap sort works by first transforming the list into a max heap. 
+The largest element in the data (the root of the heap) is then swapped with the last element, 
+effectively placing it in its correct position in the sorted array. 
+The heap size is reduced by one and heapify operation is called on the root node to restore the max heap property.
+The last two steps are repeated until the list is sorted.'''
 def heapifyTemp(list, n, i):
     largest = i
     left = 2 * i + 1

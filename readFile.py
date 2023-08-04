@@ -1,7 +1,7 @@
 import csv
 
 
-# class that curenctly can store the distance and temperature of the star, also makes the conversions to kelvin and light-years
+# class that curenctly can store the star id,  distance, and temperature of the star, also makes the conversions to kelvin and light-years
 class Star:
 
   def __init__(self, star_id, distance, temperature):

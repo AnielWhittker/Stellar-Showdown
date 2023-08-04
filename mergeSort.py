@@ -1,3 +1,10 @@
+# Merge sort algorithm for sorting the list of stars by name, temperature, and distance
+'''Merge sort is a divide and conquer type of sorting algorithm that takes a list of elements 
+and recursively breaks it down into smaller halves 
+until the lists are small enough (usually when the list has just one element), which is the "divide" part. 
+Since a list with one element is always sorted, the algorithm then starts merging these smaller lists, sorting them in the process. 
+This is the conquer part.'''
+
 def mergeTemperature(list, start, mid, end):
   left = list[start:mid + 1]
   right = list[mid + 1:end + 1]

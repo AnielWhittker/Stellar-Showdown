@@ -1,3 +1,8 @@
+# bitonicSort.py contains the bitonic sort algorithm for sorting the list of stars by temperature and distance.
+'''The first step in bitonic sort is to build a bitonic sequence from the input. 
+This is done by recursively sorting the input in increasing and decreasing orders to create two bitonic sequences, 
+and then merging them.'''
+
 def bitonicMergeTemp(list, low, count, direction):
     if count > 1:
         k = count // 2

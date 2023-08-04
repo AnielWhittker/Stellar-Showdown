@@ -15,6 +15,7 @@ import sortingCodes as sc
 import base64
 import runAllSorts as ras
 
+# reads the readme file and stores it in a string
 with open("README.md", "r") as file:
   readme = file.read()
 
@@ -37,6 +38,7 @@ def background(imageFile):
 def main():
   st. set_page_config(layout="wide")
   # list that stores the star objects
+  # I used session state becuse otherwise there is no way to keep track of what has happend before
   if "sorting_list" not in st.session_state:
     st.session_state.sorting_list = r.list
 
@@ -88,9 +90,9 @@ def main():
   else:
     st.sidebar.write('range:', star_range)
 
-  # I used session state becuse otherwise there is no way to keep track of what has happend before, which is important as I do not want the sorting to run again if ano  other action is performed, like prssing show stars
 
-  # checks if button pressed is in the session state, if not it adds it and sets it to False, similar with sort resul
+  # checks if button pressed is in the session state, 
+  # if not it adds it and sets it to False, similar with sort resul
   if "button_pressed" not in st.session_state:
     st.session_state.button_pressed = False
   if "sort_result" not in st.session_state:
@@ -99,9 +101,10 @@ def main():
   # adds the choices buttons
   choice1 = st.sidebar.radio("Sort stars by", ["Distance from Earth", "Temperature"])
   choice2 = st.sidebar.radio("Which Sorting algorithm?",
-                     ["Merge Sort", "Selection Sort", "Bubble Sort", "Shell Sort", "Quick Sort", "TimSort", "Heap Sort", "Bogo Sort", "Bitonic Sort"])
+                     ["Merge Sort", "Selection Sort", "Bubble Sort", "Shell Sort", "Quick Sort", "TimSort", "Heap Sort", 
+                      "Bogo Sort", "Bitonic Sort"])
   
-  # dictionary for report(TODO)
+  # dictionary for report
   if "usedAlgorithimDist" not in st.session_state or "usedAlgorithimTemp" not in st.session_state:
     st.session_state.usedAlgorithimDist = {}
     st.session_state.usedAlgorithimTemp = {}
@@ -134,7 +137,8 @@ def main():
     st.subheader("Sort by temperature, all sorts")
     st.code(string_temp)
 
-  # if button pressed is True, it will run the sorting algorithm(TODO) and sets the result( string of time it took) to the session state, sets button pressed to False in state
+  # if button pressed is True, it will run the sorting algorithm
+  #  and sets the result( string of time it took) to the session state, sets button pressed to False in state
   if st.session_state.button_pressed and st.session_state.sort_result is None:
     st.session_state.sorting_list = r.list[star_range[0]:star_range[1]]
     list = st.session_state.sorting_list
@@ -351,7 +355,9 @@ def main():
       # if the color index was empty, therfore set to 0, set to "N/A"
       if temperature == str(4600 * ((1 / 1.7) + (1 / 0.62))):
         temperature = "N/A"
-      stringStars += "Star " + str(st.session_state.sorting_list[j].star_id) + ":" + " Distance from Earth, " + str("{:.5f}".format(st.session_state.sorting_list[j].distance)) + " light-years. Temperature " + temperature + " Kelvin" + "\n"
+      stringStars += "Star " + str(st.session_state.sorting_list[j].star_id) + ":" + " Distance from Earth, " 
+      + str("{:.5f}".format(st.session_state.sorting_list[j].distance)) + " light-years. Temperature " 
+      + temperature + " Kelvin" + "\n"
     st.code(stringStars)
     st.subheader("Bottom " + str(starsToShow) + " stars")
     stringStars = ""
@@ -360,7 +366,9 @@ def main():
       # if the color index was empty, therfore set to 0, set to "N/A"
       if temperature == str(4600 * ((1 / 1.7) + (1 / 0.62))):
         temperature = "N/A"
-      stringStars += "Star " + str(st.session_state.sorting_list[j].star_id) + ":" + " Distance from Earth, " + str("{:.5f}".format(st.session_state.sorting_list[j].distance)) + " light-years. Temperature " + temperature + " Kelvin" + "\n"
+      stringStars += "Star " + str(st.session_state.sorting_list[j].star_id) + ":" + " Distance from Earth, " 
+      + str("{:.5f}".format(st.session_state.sorting_list[j].distance)) + " light-years. Temperature " 
+      + temperature + " Kelvin" + "\n"
     st.code(stringStars)
 
   string_dist = ""

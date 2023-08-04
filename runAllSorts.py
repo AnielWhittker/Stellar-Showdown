@@ -10,6 +10,7 @@ import heapSort as hs
 import bogoSort as bogo
 import bitonicSort as bitSort
 
+# runAllSorts.py contains the code for running all the sorting algorithms on the list of stars.
 def runAllSorts(list, sortBy):
     returnDict = {}
 
