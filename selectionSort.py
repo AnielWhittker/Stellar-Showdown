@@ -26,3 +26,5 @@ def selectionSortDist(list):
         list[minIndx] = temp
         
     return list
+
+# source: https://www.geeksforgeeks.org/selection-sort-vs-bubble-sort/?ref=gcse
