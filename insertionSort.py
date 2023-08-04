@@ -7,10 +7,10 @@ def insertionSortTemp(list):
         return
 
     for i in range(1, len(list)):
-        key = list[i].temperature
+        key = list[i]
         j = i - 1
-        while j >= 0 and key < list[j].temperature:
-            list[j + 1] = list[j].temperature
+        while j >= 0 and key.temperature < list[j].temperature:
+            list[j + 1] = list[j]
             j -= 1
         list[j + 1] = key  # Insert the key in the correct position
 
@@ -20,10 +20,10 @@ def insertionSortDist(list):
         return
 
     for i in range(1, len(list)):
-        key = list[i].distance
+        key = list[i]
         j = i - 1
-        while j >= 0 and key < list[j].distance:
-            list[j + 1] = list[j].distance
+        while j >= 0 and key.distance < list[j].distance:
+            list[j + 1] = list[j]
             j -= 1
         list[j + 1] = key
 

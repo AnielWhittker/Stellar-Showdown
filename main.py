@@ -10,6 +10,7 @@ import quickSort as qs
 import heapSort as hs
 import bogoSort as bogo
 import bitonicSort as bitSort
+import insertionSort as isort
 import math
 import sortingCodes as sc
 import base64
@@ -103,7 +104,7 @@ def main():
   choice1 = st.sidebar.radio("Sort stars by", ["Distance from Earth", "Temperature"])
   choice2 = st.sidebar.radio("Which Sorting algorithm?",
                      ["Merge Sort", "Selection Sort", "Bubble Sort", "Shell Sort", "Quick Sort", "TimSort", "Heap Sort", 
-                      "Bogo Sort", "Bitonic Sort"])
+                      "Bogo Sort", "Bitonic Sort", "Insertion Sort"])
   
   # dictionary for report
   if "usedAlgorithimDist" not in st.session_state or "usedAlgorithimTemp" not in st.session_state:
@@ -316,6 +317,24 @@ def main():
       else:
         st.sidebar.write("Please enter a power of 2 as the range")
         st.session_state.button_pressed = False
+    
+    elif choice1 == "Distance from Earth" and choice2 == "Insertion Sort":
+      start = time.time()
+      isort.insertionSortDist(st.session_state.sorting_list)
+      end = time.time()
+      st.session_state.usedAlgorithimDist[choice2] = str("{:.4f}".format(end - start))
+      st.session_state.sort_result = choice2 + " Algorithm took: " + str(
+        "{:.4f}".format(end - start)) + " seconds"
+      st.session_state.button_pressed = False
+    
+    elif choice1 == "Temperature" and choice2 == "Insertion Sort":
+      start = time.time()
+      isort.insertionSortTemp(st.session_state.sorting_list)
+      end = time.time()
+      st.session_state.usedAlgorithimTemp[choice2] = str("{:.4f}".format(end - start))
+      st.session_state.sort_result = choice2 + " Algorithm took: " + str(
+        "{:.4f}".format(end - start)) + " seconds"
+      st.session_state.button_pressed = False
 
   # displays the result string and code to screen if result is not None
   if st.session_state.sort_result is not None:
