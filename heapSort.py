@@ -56,3 +56,5 @@ def heapSortDist(list):
     for i in range(n - 1, 0, -1):
         (list[i], list[0]) = (list[0], list[i])
         heapifyDist(list, i, 0)
+
+# Code based off of https://www.geeksforgeeks.org/python-program-for-heap-sort/
