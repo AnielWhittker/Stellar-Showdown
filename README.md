@@ -3,6 +3,9 @@ Welcome to our interactive Streamlit web application, designed to give you an im
 
 This application has been a team effort brought to you by Neema Owji, Maxwell Evans, and Aniel Whittaker Melian. We hope you find it useful and enjoyable, whether you're studying data structures and algorithms or simply exploring the stars.
 
+
+Our finished Streamlit web app (Dark mode recommended) URL: https://stellar-showdown.streamlit.app/
+
 Star data sourced from the HYG Database: https://github.com/astronexus/HYG-Database/blob/master/hyg/v2/hygxyz.csv
 
 Stock image sourced from Pexels: https://www.pexels.com/photo/milky-way-illustration-1169754/
