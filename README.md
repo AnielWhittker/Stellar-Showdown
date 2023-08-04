@@ -4,7 +4,9 @@ Welcome to our interactive Streamlit web application, designed to give you an im
 This application has been a team effort brought to you by Neema Owji, Maxwell Evans, and Aniel Whittaker Melian. We hope you find it useful and enjoyable, whether you're studying data structures and algorithms or simply exploring the stars.
 
 Maxwell Evans: Student at UF.
+
 Neema Owji: Student at UF.
+
 Aniel Whittker Melian: Student at UF, Computer Science major.
 
 
