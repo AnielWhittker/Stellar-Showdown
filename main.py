@@ -44,6 +44,7 @@ def main():
 
   background("image.jpg") # add background image
 
+  # title and subheader
   st.sidebar.title("Stellar Showdown")
   st.sidebar.subheader("******using the HYG Database of 120,000 Stars******")
 
