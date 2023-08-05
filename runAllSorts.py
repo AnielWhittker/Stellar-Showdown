@@ -8,6 +8,7 @@ import timSort as ts
 import quickSort as qs
 import heapSort as hs
 import bogoSort as bogo
+import insertionSort as inssort
 import bitonicSort as bitSort
 
 # runAllSorts.py contains the code for running all the sorting algorithms on the list of stars.
@@ -96,6 +97,14 @@ def runAllSorts(list, sortBy):
 
         returnDict["Bitonic Sort"] = str("{:.4f}".format(end - start))
 
+        start = time.time()
+        inssort.insertionSortTemp(temp)
+        end = time.time()
+
+        temp = list[:]
+
+        returnDict["Insertion Sort"] = str("{:.4f}".format(end - start))
+
 
     elif sortBy == "distance":
 
@@ -174,6 +183,14 @@ def runAllSorts(list, sortBy):
         end = time.time()
 
         returnDict["Bitonic Sort"] = str("{:.4f}".format(end - start))
+
+        start = time.time()
+        inssort.insertionSortDist(temp)
+        end = time.time()
+
+        temp = list[:]
+
+        returnDict["Insertion Sort"] = str("{:.4f}".format(end - start))
 
 
     returnDict["Bogo Sort"] = "N/A"
