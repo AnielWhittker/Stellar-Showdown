@@ -178,3 +178,16 @@ def bogoSortTemp(list):
         random.shuffle(returnList)
 
     return returnList'''
+
+# insertion sort algorithm code snippet
+insertionSort = '''def insertionSortTemp(list):
+    if len(list) <= 1:
+        return
+
+    for i in range(1, len(list)):
+        key = list[i]
+        j = i - 1
+        while j >= 0 and key.temperature < list[j].temperature:
+            list[j + 1] = list[j]
+            j -= 1
+        list[j + 1] = key  # Insert the key in the correct position'''

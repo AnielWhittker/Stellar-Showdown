@@ -361,6 +361,8 @@ def main():
       st.code(sc.bogoSort, language="python")
     elif choice2 == "Bitonic Sort":
       st.code(sc.bitonicSort, language="python")
+    elif choice2 == "Insertion Sort":
+      st.code(sc.insertionSort, language="python")
   
   # if tthe button is pressed, it will display the top 25 and bottom 26 stars in the list
   if st.sidebar.checkbox("Show stars"):
