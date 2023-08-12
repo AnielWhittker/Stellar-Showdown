@@ -1,10 +1,10 @@
 # quickSort.py contains the quickSort functions for sorting the stars by their name, temperature, and distance.
 '''The quick sort algorithm selects an element from the list to serve as a pivot.
-All the elements are then re-arranged around the pivot: elements less than the pivot are moved to its left, 
-and elements greater than the pivot are moved to its right. 
+All the elements are then re-arranged around the pivot: elements less than the pivot are moved to its left,
+and elements greater than the pivot are moved to its right.
 This operation is known as partitioning.
 After partitioning, the pivot is in its final position. 
-This is the "divide" part of the algorithm: the pivot element is in the correct spot, 
+This is the "divide" part of the algorithm: the pivot element is in the correct spot,
 and the elements on either side of it form two sublists that can be sorted independently.
 The quick sort algorithm then recurses on the two sublists. This is the "conquer" part.'''
 

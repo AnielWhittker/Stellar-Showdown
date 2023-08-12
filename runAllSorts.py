@@ -184,11 +184,12 @@ def runAllSorts(list, sortBy):
 
         returnDict["Bitonic Sort"] = str("{:.4f}".format(end - start))
 
+        temp = list[:]
+
         start = time.time()
         inssort.insertionSortDist(temp)
         end = time.time()
 
-        temp = list[:]
 
         returnDict["Insertion Sort"] = str("{:.4f}".format(end - start))
 
